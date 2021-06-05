@@ -1,0 +1,17 @@
+from StaticStack import StaticStack
+
+stack = StaticStack(5)
+stack.insertElement(4)
+stack.insertElement(3)
+stack.insertElement(6)
+stack.removeElement()
+stack.insertElement(53)
+stack1 = StaticStack(5)
+stack1.insertElement(4)
+stack1.insertElement(3)
+stack1.insertElement(6)
+stack1.removeElement()
+stack1.insertElement(53)
+stack.insertElement(324)
+stack1.insertElement(345)
+print(stack.validEquation(')(-))))-((((-(-)'))

@@ -1,0 +1,27 @@
+from queue import Queue
+
+queue = Queue(5)
+queue.insertElement(4)
+queue.insertElement(6)
+queue.insertElement(3)
+queue.removeElement()
+queue.insertElement(20)
+queue.viwFistElement()
+queue.insertElement(1)
+queue.insertElement(32)
+queue.insertElement(4)
+queue.insertElement(6)
+queue.queueSize(3)
+queue.queueFull()
+queue.removeElement()
+queue.insertElement(23)
+del queue
+
+queue2 = queue.copyQueue()
+queue3 = queue.concatenateQueue(queue, queue2)
+print(queue2.size)
+print(queue2.insertElement(123, ))
+print(queue.data)
+print(queue2.viwFistElement())
+print(queue2.inverterOrder())
+print(queue.viwFistElement())

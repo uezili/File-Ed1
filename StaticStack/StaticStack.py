@@ -25,6 +25,7 @@ class StaticStack:
     def removeElement(self):
         if self.date is None:
             return False
+
         self.size -= 1
 
     def topAccess(self):
@@ -54,12 +55,14 @@ class StaticStack:
     def validEquation(self, equation=None):
         stack = StaticStack(20)
         for i in equation:
-            if i == '(':
+            if i == '(' and i == "[" and i == '{':
                 stack.insertElement(i)
-            elif i == ')':
+            elif i == ')' and i == ']' and i == '}':
                 if stack.size > 0:
                     stack.size += 1
                 stack.removeElement()
         if stack.size == 0:
-            return "Correct equation!"
-        return "Equation error!"
+            return "Correto"
+        return "Incorreto"
+
+

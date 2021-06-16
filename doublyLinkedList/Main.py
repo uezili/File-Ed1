@@ -1,5 +1,10 @@
-from doublyLinkedList.douLinkedList import DouLinkedList
+from doublyLinkedList.douLinkedList import DoublyLinkedList
 
 
-linkedList = DouLinkedList()
-print(linkedList.insertElementTheEnd(3))
+linkedList = DoublyLinkedList()
+linkedList.insertFistList(3)
+linkedList.insertFistList(43)
+linkedList.insertEndList(254)
+linkedList.insertElementTheMiddle(2, 34)
+linkedList.listprint(linkedList.head)
+linkedList.impaPar()

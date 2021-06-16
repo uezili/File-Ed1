@@ -65,3 +65,4 @@ class Queue:
         for i in range(self.last, self.max):
             queue.insertElement(self.data[i])
         return queue.data
+

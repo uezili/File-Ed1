@@ -20,7 +20,9 @@ class TableHashing:
             return hv % self.size
         return key % self.size
 
-    def insert(self, value, key):
+    def insert(self, value, key=None):
+        if key is None:
+            key = value
         index = self._hash(key)
         element = ItemHashing(value, key)
         for i in range(self.size):

@@ -23,7 +23,6 @@ class HashTable:
         index = self._hash(key)
         element = ItemHash(value, key)
         if self.slots[index] is None:
-            self.slots[index] = value
             self.slots[index] = element
             self.count += 1
             print("item insert")

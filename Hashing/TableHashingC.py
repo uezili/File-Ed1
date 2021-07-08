@@ -18,31 +18,38 @@ class TableHashing:
             for ch in key:
                 hv += mult * ord(ch)
             return hv % self.size
-        return key % self.size
+        return (key & 0x7FFFFFF) % self.size
 
-    def insert(self, value, key=None):
-        if key is None:
-            key = value
-        index = self._hash(key)
-        element = ItemHashing(value, key)
-        for i in range(self.size):
-            if self.table[index] is None:
-                self.table[index] = element
+    def linearProbing(self, key, const):
+        return ((key + const) & 0x7FFFFFFF) % self.size
+
+    def insert(self, value):
+        if self.size == self.count:
+            raise ValueError("Table is full!")
+        index = int(self._hash(value))
+        for i in range(self.count):
+            newIndex = self.linearProbing(index, i)
+            if self.table[newIndex] is None:
+                element = ItemHashing(value, newIndex)
+                self.table[newIndex] = element
                 self.count += 1
-                print(f"Item insert in index: {index}")
+                print(f"Item insert in index: {newIndex}")
                 break
-            index += 1
-            if index == self.size:
-                index = 0
-            if self.size == self.count:
-                raise ValueError("Table is full!")
 
-    def search(self, key):
-        calcH = self._hash(key)
+    def search(self, value):
+        key = int(value)
+        index = self._hash(key)
+        for i in range(self.count):
+            newIndex = self.linearProbing(index, i)
+            if self.table[newIndex]:
+                if self.table[newIndex].value == value:
+                    print(f'{self.table[i].value},\n{self.table[i].key},\nposition table: {i}')
+                    return
+        raise ValueError('Item not found')
+
+    def sizeTible(self):
+        return self.count
+
+    def seeTable(self):
         for i in range(self.size):
-            if self.table[calcH].key == key:
-                print(f'{self.table[calcH].value},\n{self.table[calcH].key},\nposition table: {calcH}')
-                break
-            if calcH == self.size:
-                calcH = 0
-            calcH = calcH + 1
+            print(f'{self.table[i]}')

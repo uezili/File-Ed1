@@ -1,8 +1,9 @@
-from tableHashing import HashTable
+from TableHashingC import TableHashing
 
-table = HashTable(7)
-table.insert('wesley', 1998)
-table.insert(1998, 'wesley')
+table = TableHashing(100)
+
+with open('5intens.txt'.swapcase(), 'r') as file:
+    for i in file:
+        table.insert(i)
+
 table.seeTable()
-table.search('wesley')
-table.search(1998)

@@ -1,2 +1,2 @@
-# File-Ed1
-data structure chair files
+# Algorithms data structure
+Data structure algorithms presented in the data structure course 1.
